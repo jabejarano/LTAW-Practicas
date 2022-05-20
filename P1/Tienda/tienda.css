@@ -80,12 +80,13 @@ p{
     padding: 10px;
 }
 
+#informacion{
+    width: 75%; 
+    padding: 3px;
+}
+
 #licencia{
     width: 10%; 
     padding: 10px;
 }
 
-#informacion{
-    width: 75%; 
-    padding: 3px;
-}
