@@ -1,0 +1,87 @@
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: Geneva, Tahoma, sans-serif; 
+}
+
+h1{
+    font-size: 40px;
+    color:rgb(15, 14, 14);
+    text-align: center;
+}
+
+h3{
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    /* top,right,bottom,left */
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 0px 0px;;
+}
+
+p{
+    font-size: 15px;  
+    color: black;
+    text-decoration: none;
+}
+
+.menu{
+    background-color: rgb(6, 6, 6);
+    color: #ffffff; 
+    /* top,right,bottom,left */
+    padding: 0px 20px 0px 40px;
+    margin: 0px;
+    width: 100%;
+
+}
+
+#libro1{
+    background-color:rgba(255, 255, 255);
+    /* top,right,bottom,left */
+    margin:20px 40px 20px 40px;
+    padding: 40px 30px 40px 30px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+
+}
+#libro2{
+    background-color:rgba(255, 255, 255);
+    /* top,right,bottom,left */
+    margin:20px 40px 20px 40px;
+    padding: 40px 30px 40px 30px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+
+}
+#libro3{
+    background-color:rgba(255, 255, 255);
+    /* top,right,bottom,left */
+    margin:20px 40px 20px 40px;
+    padding: 40px 30px 40px 30px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+
+}
+
+.fotos{
+    width: 180px; 
+}
+ .terror{
+    width: 152px; 
+ }
+
+.footer{
+    text-align: center;
+    padding: 10px;
+}
+
+#licencia{
+    width: 10%; 
+    padding: 10px;
+}
+
