@@ -1,103 +1,87 @@
-@font-face
-{
-   font-family: "GODOFWAR";
-   src: url("imagenes/GODOFWAR.ttf");
-}
-
-@font-face
-{
-   font-family: "BAD_GRUNGE";
-   src: url("imagenes/BAD_GRUNGE.ttf");
-}
-
-
-/* Documento de estilo del CV de John Wick */
-html {
-    background-image: url("imagenes/hoja cv.jpg"); 
-    background-size: cover;
-
-}   
 body {
-    background-color: none;
-    padding: 0px; /*Relleno*/
-    border: solid;
-    border-color: black;
+    background-color: rgb(255, 255, 255);
+    font-family: Geneva, Tahoma, sans-serif; 
 }
 
-.centrado{
-    margin:10px auto;
-    display:block;
-}
-
-/* Estilo encabezado */
- h1{
-    text-align: center;
-    color: rgb(24, 17, 17);
-    border-bottom: 5px solid rgb(143, 82, 4);
-    font-family: "BAD_GRUNGE";
-    font-size: 70px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-
-} 
-h2{
-    font-family: "GODOFWAR";
-    border-bottom: 5px solid rgb(143, 82, 4);
-}
-h5{
+h1{
+    font-size: 40px;
+    color:rgb(15, 14, 14);
     text-align: center;
 }
 
-h6{
-    text-align: left;
+h3{
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    /* top,right,bottom,left */
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 0px 0px;;
+}
+
+p{
+    font-size: 15px;  
     color: black;
+    text-decoration: none;
 }
 
-.titulosleft{
-    border: solid;
-    border:black 5px double;
-    padding: 2px; 
+.menu{
+    background-color: rgb(6, 6, 6);
+    color: #ffffff; 
+    /* top,right,bottom,left */
+    padding: 0px 20px 0px 40px;
     margin: 0px;
-    text-align: left;
+    width: 100%;
+
 }
 
-.tituloscenter{
-    background-color: none;
-    color:black;
-    padding: 0px;
-    margin: 0px;
-    border: none;
-    border-color:none;
-    text-align: left;
-}
-
-.skills{
-    display: inline-block;
-    text-align: left;
-    align-items: center;
-    list-style: none;
-    margin: -10px;
-}
-
-.bloqueizq{
+#libro1{
+    background-color:rgba(255, 255, 255);
+    /* top,right,bottom,left */
+    margin:20px 40px 20px 40px;
+    padding: 40px 30px 40px 30px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
     float: left;
-    width: "260";
-    height: "125";
-    border: 
-    border-color: none;
-    padding: 10px; /*Relleno*/
+
+}
+#libro2{
+    background-color:rgba(255, 255, 255);
+    /* top,right,bottom,left */
+    margin:20px 40px 20px 40px;
+    padding: 40px 30px 40px 30px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+
+}
+#libro3{
+    background-color:rgba(255, 255, 255);
+    /* top,right,bottom,left */
+    margin:20px 40px 20px 40px;
+    padding: 40px 30px 40px 30px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0px 0px 5px #ccc;
+    float: left;
+
 }
 
-.bloquecen{
-    display: inline-block; /*Bloques a la misma altura */
-    color: black;
-    background-color:  none;
-    text-align: left;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-radius: none;
-    border: none;
-    height: 700px;
-    width: 850px;
-    padding: 10px;      
-    margin: 3px;
+.fotos{
+    width: 180px; 
 }
+ .terror{
+    width: 152px; 
+ }
+
+.footer{
+    text-align: center;
+    padding: 10px;
+}
+
+#licencia{
+    width: 10%; 
+    padding: 10px;
+}
+
