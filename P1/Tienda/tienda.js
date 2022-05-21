@@ -1,82 +1,81 @@
+//-- Importo los módulos http,url y fs
 const http = require('http');
+const url = require('url');
+const fs = require('fs');
 
-const PUERTO = 9090;
+//-- Definir el puerto a utilizar
+const PUERTO = 9090; 
 
-// tipo de archivo solicitado
-const mime = {
+//-- Crear el servidor
+const server = http.createServer((req, res) => {
+  
+  const myURL = new URL(req.url, 'http://' + req.headers['host']);
+  console.log("Recurso recibido: " + myURL.pathname);
+
+  //-- Indicamos que se ha recibido una petición
+  console.log("----------> Petición recibida:",myURL);
+
+  var mime = {
+    '/' : 'text/html',
     'html' : 'text/html',
     'css'  : 'text/css',
+    'jfif'  : 'image/jfif',
+    'jpeg'  : 'image/jpeg',
     'jpg'  : 'image/jpg',
-    'ico'  : 'image/x-icon'
- };
+    'png'  : 'image/png',
+    'gif'  : 'image/gif',
+  
+  };
 
+  let filename = ""
+  
+  //-- Obtenemos el fichero correspondiente.
+  if(myURL.pathname == '/'){
+    filename += "./tienda.html"; //-- Página principal de la tienda
+  }else{
+    filename += "." + myURL.pathname;
+  }
+  console.log("Filename:",filename);
 
-//-- Texto HTML de la página principal
-const pagina_main = `
+  // -- Buscamos el "." final para poder indicar que tipo mime es
+  let hastaPunto = myURL.pathname.lastIndexOf(".");
+  let type = myURL.pathname.slice(hastaPunto+1);
+  console.log("Tipo de mime:",mime[type]);
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi tienda</title>
-</head>
-<body style="background-color: lightblue">
-    <h1 style="color: green">MI TIENDA</h1>
-</body>
-</html>
-`
+  //-- Valores de la respuesta por defecto
+  let code = 200;
+  let message = "OK";
 
-//-- Texto HTML de la página de error
-const pagina_error = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi tienda</title>
-</head>
-<body style="background-color: red">
-    <h1 style="color: white">ERROR!!!!</h1>
-</body>
-</html>
-`
-
-const server = http.createServer((req, res)=>{
-    console.log("Petición recibida!");
-
-    //-- Valores de la respuesta por defecto
-    let code = 200;
-    let code_msg = "OK";
-    let page = pagina_main;
-
-    //-- Analizar el recurso
-    //-- Construir el objeto url con la url de la solicitud
-    const url = new URL(req.url, 'http://' + req.headers['host']);
-    console.log(url.pathname);
-
-    //-- Cualquier recurso que no sea la página principal
-    //-- genera un error
-    if (url.pathname != '/') {
-        code = 404;
-        code_msg = "Not Found";
-        page = pagina_error;
+  //-- Leer fichero
+  fs.readFile(filename, function(err, data) {
+     //-- Fichero no encontrado. Devolver mensaje de error
+    if ((err|| (filename == 'error.html'))) {
+      code = 404;
+      message = "Not Found";
+      data = fs.readFileSync('./tienda_error.html')
+      res.writeHead(code, {'Content-Type': 'text/html'});
+      res.write(data);
+      res.end();
+    }else{
+      res.statusCode = code; 
+      res.statusMessage = message;
+      res.writeHead(code, {'Content-Type': mime[type]});
+      res.write(data);
+      res.end();
     }
-
-    //-- Generar la respusta en función de las variables
-    //-- code, code_msg y page
-    res.statusCode = code;
-    res.statusMessage = code_msg;
-    res.setHeader('Content-Type','text/html');
-    res.write(page);
-    res.end();
+    
+  });
+  
+  //console.log("Contenido del fichero: \n")
+  //console.log(data); 
+   
 });
 
+
+//-- Activar el servidor:
 server.listen(PUERTO);
 
-console.log("Ejemplo 7. Escuchando en puerto: " + PUERTO);
+console.log(" Server activado!. Escuchando en puerto: " + PUERTO);
 
 
 
