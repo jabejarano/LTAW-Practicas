@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0",
+    "websocket": "^1.0.34",
+    "wscat": "^5.1.0"
+  }
+}
