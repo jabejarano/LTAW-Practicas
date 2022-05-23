@@ -1,6 +1,20 @@
+@font-face
+{
+   font-family: "Typewriter";
+   src: url("Typewriter.otf");
+}
+
+@font-face
+{
+   font-family: "typwrng";
+   src: url("typwrng.ttf");
+}
+
+
 body{
     background-color:rgb(111, 231, 127);
     font-family: Geneva, Tahoma, sans-serif;
+    font-family: "Typewriter";
     
 }
 
@@ -13,11 +27,12 @@ h2{
     margin-block-start: 40px;
     margin-block-end: 40px;
     text-align: center;
+    font-family: "Typewriter";
 }
 
 h4{
-    margin-inline-start: 340px;
-
+    margin-inline-start: 310px;
+    font-family: "typwrng";    
 }
 
 #msg_entry{
