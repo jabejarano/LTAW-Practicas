@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejemplo 9</title>
+  <link  rel = " stylesheet " href = "diseño-chat.css">
+  <title>Messenger</title>
 
   <!-- Cargar la biblioteca Socket.IO. Nos la debe entregar el servidor -->
   <script src="/socket.io/socket.io.js"></script>
@@ -14,9 +15,12 @@
 </head>
 
 <body>
-  <h2>Ejemplo 9: Mini-chat</h2>
-  <input type="text" placeholder="Escribe aquí los mensajes..." autocomplete="off" id="msg_entry">
-  <h3>Mensajes recibidos</h3>
-  <p id="display"></p>
+  <h2>Bienvenido/a a la sala de chat</h2>
+  <h4>Escribe aqui el mensaje y pulsa enter</h4>
+  <input type="text" placeholder="En un lugar de la mancha..." autocomplete="off" id="msg_entry">
+  <div id="sala">
+    <h3>Mensajes recibidos</h3>
+    <p id="display"></p>
+  </div>    
 </body>
 </html>
