@@ -39,6 +39,12 @@ io.on('connect', (socket) => {
     console.log('** CONEXIÓN TERMINADA **'.yellow);
   });  
 
+  msg_inf1 = "BIENVENIDO AL CHAT!!";
+  socket.send('<p style="color:blue">'+ msg_inf1 +'</p>');
+
+  msg_inf2 = "** NUEVO USUARIO CONECTADO **";
+  io.send('<p style="color:blue">'+ msg_inf2 +'</p>');
+
   //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
