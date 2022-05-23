@@ -4,7 +4,7 @@ const http = require('http');
 const express = require('express');
 const colors = require('colors');
 
-const PUERTO = 8090;
+const PUERTO = 8080;
 
 //-- Crear una nueva aplciacion web
 const app = express();
