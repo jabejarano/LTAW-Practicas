@@ -1,0 +1,17 @@
+body{
+    background-color: #ffff;
+    font-family: Geneva, Tahoma, sans-serif; 
+    color: rgb(8, 189, 17);
+}
+h1{
+    background-color: rgb(2, 2, 2);
+    text-align: center;
+    /* top,right,bottom,left */
+    padding: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 10px;
+}
+img{
+    size: 100%;
+    display: block;
+    margin: 0px auto;
+}
