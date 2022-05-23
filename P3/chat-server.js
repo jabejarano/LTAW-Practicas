@@ -6,6 +6,9 @@ const colors = require('colors');
 
 const PUERTO = 8090;
 
+let user = 0;
+username = [];
+
 //-- Crear una nueva aplciacion web
 const app = express();
 
@@ -18,7 +21,8 @@ const io = socket(server);
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Definir el punto de entrada principal de mi aplicación web
 app.get('/', (req, res) => {
-  res.send('Bienvenido a mi aplicación Web!!!' + '<p><a href="/chat-client.html">Test</a></p>');
+  
+  res.sendFile(__dirname + "/public/chat.html");
 });
 
 //-- Esto es necesario para que el servidor le envíe al cliente la
@@ -31,8 +35,11 @@ app.use(express.static('public'));
 //------------------- GESTION SOCKETS IO
 //-- Evento: Nueva conexion recibida
 io.on('connect', (socket) => {
+
   
   console.log('** NUEVA CONEXIÓN **'.yellow);
+
+  user = user + 1;
 
   //-- Evento de desconexión
   socket.on('disconnect', function(){
@@ -49,8 +56,40 @@ io.on('connect', (socket) => {
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
 
-    //-- Reenviarlo a todos los clientes conectados
-    io.send(msg);
+    if (msg.startsWith('/')) {
+      switch(msg){
+        case '/help':
+          const message_listcommand = '/help --> Lista con todos los comandos soportados.' + '<br>' +
+                 '/list --> Número de usuarios conectados.' + '<br>' +
+                 '/hello --> El servidor nos devolverá el saludo.' + '<br>' +
+                 '/date --> Fecha actual.';
+
+          socket.send(message_listcommand);
+          break;
+        case '/hello':
+          const message_hello = '¡¡Bienvenido al chat!!';
+          socket.send(message_hello);
+          break;
+        case '/date':
+          d = new Date();         
+          const message_date = 'Fecha: ' + d.getDate() +'/'+ (d.getMonth()+1) +'/' + d.getFullYear();
+          socket.send(message_date);
+          break;
+       case '/list': 
+          const message_users = 'Usuarios conectados: ' + user;
+          socket.send(message_users);
+          break;
+        default:
+          socket.send('El comando es incorrecto!!. Intoduzca /help para visualizar los comandos.');
+          return;
+      }
+    }else{
+      if(user){
+        var index = username.indexOf(socket.id);
+        io.send(msg);
+      }
+    }
+
   });
 
 });
