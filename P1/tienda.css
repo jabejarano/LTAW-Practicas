@@ -1,3 +1,16 @@
+@font-face
+{
+   font-family: "batmfa__";
+   src: url("batmfa__.ttf");
+}
+
+@font-face
+{
+   font-family: "Road_Rage";
+   src: url("Road_Rage.otf");
+}
+
+
 body {
     background-color: rgb(255, 255, 255);
     font-family: Geneva, Tahoma, sans-serif; 
@@ -7,6 +20,7 @@ h1{
     font-size: 40px;
     color:rgb(15, 14, 14);
     text-align: center;
+    font-family: "batmfa__"
 }
 
 h3{
@@ -16,6 +30,7 @@ h3{
     /* top,right,bottom,left */
     padding: 10px 10px 10px 10px;
     margin: 0px 0px 0px 0px;;
+    font-family: "Road_Rage"
 }
 
 p{
