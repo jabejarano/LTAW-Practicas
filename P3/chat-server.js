@@ -4,7 +4,7 @@ const http = require('http');
 const express = require('express');
 const colors = require('colors');
 
-const PUERTO = 8090;
+const PUERTO = 9090;
 
 let user = 0;
 username = [];
@@ -44,6 +44,7 @@ io.on('connect', (socket) => {
   //-- Evento de desconexión
   socket.on('disconnect', function(){
     console.log('** CONEXIÓN TERMINADA **'.yellow);
+    user = user - 1;
   });  
 
   msg_inf1 = "BIENVENIDO AL CHAT!!";
