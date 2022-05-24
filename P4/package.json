@@ -1,0 +1,23 @@
+{
+    "name": "mi-electron-app",
+    "description": "Estas es mi primera aplicación de escritorio en Electron",
+    "version": "0.1.0",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "dependencies": {
+        "colors": "^1.4.0",
+        "electron-builder": "^23.0.3",
+        "express": "^4.18.1",
+        "ip": "^1.1.8",
+        "node": "^17.7.2",
+        "node.js": "^0.0.1-security",
+        "npm": "^8.10.0",
+        "process": "^0.11.10",
+        "qrcode-terminal": "^0.12.0",
+        "qrcoder": "^1.0.3",
+        "socket.io": "^4.5.1",
+        "websocket": "^1.0.34"
+    }
+}
